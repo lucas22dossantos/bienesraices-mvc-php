@@ -1,0 +1,33 @@
+@use "sass:color";
+@use "mixins" as m;
+@use "variables" as v;
+
+.boton-amarillo {
+  @include m.boton(v.$amarillo, inline-block);
+  &:hover {
+    background-color: #b86b07; // amarillo más oscuro a mano
+  }
+}
+
+.boton-amarillo-block {
+  @include m.boton(v.$amarillo, block);
+  &:hover {
+    background-color: #b86b07; // amarillo más oscuro a mano
+  }
+}
+
+.boton-verde {
+  @include m.boton(v.$verde, inline-block);
+  &:hover {
+    background-color: color.adjust(v.$verde, $lightness: -10%);
+  }
+}
+
+.boton-verde-block {
+  @include m.boton(v.$verde, block);
+}
+
+.boton-rojo-block {
+  @include m.boton(v.$rojo, block);
+  width: 100%;
+}

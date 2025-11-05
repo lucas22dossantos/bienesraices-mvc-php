@@ -1,0 +1,23 @@
+@use "sass:math";
+@use "base/variables" as v;
+
+.footer {
+  padding: math.div(v.$separacion, 2);
+  background: v.$grisOscuro;
+  margin-bottom: 0;
+
+  .contenedor-footer {
+    padding-top: math.div(v.$separacion, 2);
+  }
+
+  .navegacion {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+  }
+
+  .copyright {
+    color: v.$blanco;
+    text-align: center;
+  }
+}

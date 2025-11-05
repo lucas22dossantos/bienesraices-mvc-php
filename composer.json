@@ -1,0 +1,20 @@
+{
+  "name": "lucas/bienesraices_inicio",
+  "description": "Creando un proyecto con POO",
+  "authors": [
+    {
+      "name": "Lucas Emanuel Dos Santos",
+      "email": "dossantos.e.lucas@gmail.com"
+    }
+  ],
+  "require": {
+    "intervention/image": "^3.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Model\\": "./models",
+      "Controllers\\": "./controllers",
+      "MVC\\": "./"
+    }
+  }
+}
