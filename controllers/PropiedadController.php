@@ -27,7 +27,7 @@ class PropiedadController
         $propiedad = new Propiedad;
         $vendedores = Vendedor::todas();
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // crear una nueva instancia
             $propiedad = new Propiedad($_POST['propiedad']);
@@ -92,8 +92,62 @@ class PropiedadController
             'errores' => $errores ?? [],
         ]);
     }
-    public static function actualizar()
+    public static function actualizar(Router $router)
     {
-        echo 'Actualizar';
+
+        $id = validarORedireccionar("/admin");
+
+        $propiedad = Propiedad::encontrar($id);
+
+        $errores = Propiedad::getErrores();
+
+        $vendedores = Vendedor::todas();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            // debuguear($_POST);
+            $args = $_POST['propiedad'];
+
+            $propiedad->sincronizar($args);
+            // Asegurarse que la propiedad correcta tenga el valor del select
+            if (isset($args['vendedores_id'])) {
+                $propiedad->vendedorid = $args['vendedores_id'];
+            }
+
+            // validacion
+            $errores = $propiedad->validar();
+
+            // Generar nombre único para la imagen
+            $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+            //revisamos que el array de errores este vacio
+            if (empty($errores)) {
+
+                $imagen = $_FILES['propiedad']['imagen'] ?? null;
+
+                // Procesar imagen si hay una nueva
+                if ($imagen && $imagen['tmp_name']) {
+                    $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
+
+                    $manager = new Image(new Driver());
+                    $img = $manager->read($imagen['tmp_name'])
+                        ->resize(800, 600)
+                        ->toJpeg(85);
+
+                    $img->save(CARPETA_IMAGENES . $nombreImagen);
+
+                    $propiedad->imagen = $nombreImagen;
+                }
+
+                $propiedad->guardar();
+            }
+        }
+
+
+        $router->render('/propiedades/actualizar', [
+            'propiedad' => $propiedad,
+            'vendedores' => $vendedores,
+            'errores' => $errores ?? []
+        ]);
     }
 }

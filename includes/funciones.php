@@ -63,3 +63,18 @@ function mostrarNotificacion($codigo)
     }
     return $mensaje;
 }
+
+
+function validarORedireccionar(string $url)
+{
+    // Validar el id sea un entero
+    $id = $_GET['id'];
+    $id = filter_var($id, FILTER_VALIDATE_INT);
+
+    if (!$id) {
+        header("Location:"  . $url);
+        exit;
+    }
+
+    return $id;
+}
