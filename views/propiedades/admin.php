@@ -48,4 +48,36 @@
         </tbody>
     </table>
 
+    <!----------------------------------- vendedores ---------------------------------------------->
+
+    <h2>Vendedores</h2>
+    <table class="propiedades">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre completo</th>
+                <th>Telefono</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody> <!--mostrar los resultados de la consulta -->
+            <?php foreach ($vendedores as $vendedor): ?>
+                <tr>
+                    <td><?php echo $vendedor->id; ?></td>
+                    <td><?php echo $vendedor->nombre . " " . $vendedor->apellido; ?></td>
+                    <td><?php echo $vendedor->telefono; ?></td>
+                    <td>
+                        <form method="POST" class="w-100" action="/vendedores/eliminar">
+                            <input type="hidden" name="id" value="<?php echo $vendedor->id; ?>">
+                            <input type="hidden" name="tipo" value="vendedor">
+                            <input type="submit" value="Eliminar" class="boton-rojo-block">
+                        </form>
+                        <a href="/vendedores/actualizar?id=<?php echo $vendedor->id; ?>"
+                            class="boton-amarillo-block">actualizar</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
 </main>
