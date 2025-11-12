@@ -1,8 +1,9 @@
 <main class="contenedor seccion">
+
     <a href="/admin" class="boton boton-verde">Volver</a>
     <h1>Actualizar Vendedor</h1>
 
-    <!-- <?php foreach ($errores as $error): ?>
+    <?php foreach ($errores as $error): ?>
         <div class="alerta error">
             <?php echo $error; ?>
         </div>
@@ -12,7 +13,7 @@
     <form method="POST" class="formulario" enctype="multipart/form-data">
         <?php require __DIR__ . '/formulario.php'; ?>
 
-        <input type="submit" value="Actualizar Propiedad" class="boton boton-verde">
-    </form> -->
+        <input type="submit" value="Actualizar Vendedor" class="boton boton-verde">
+    </form>
 
 </main>
