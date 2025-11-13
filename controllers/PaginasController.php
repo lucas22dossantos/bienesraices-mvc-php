@@ -20,12 +20,29 @@ class PaginasController
 
     public static function nosotros(Router $router)
     {
-        $router->render('paginas/nosotros', []);
+        $router->render('paginas/nosotros');
     }
-    public static function anuncios(Router $router)
+
+    public static function propiedades(Router $router)
     {
-        echo 'desde anuncios';
+        $propiedades = Propiedad::get(100);
+
+        $router->render('paginas/propiedades', [
+            'propiedades' => $propiedades,
+        ]);
     }
+
+    public static function propiedad(Router $router)
+    {
+        $id = validarORedireccionar('/propiedades');
+
+        $propiedad = Propiedad::encontrar($id);
+
+        $router->render('paginas/propiedad', [
+            'propiedad' => $propiedad,
+        ]);
+    }
+
     public static function blog(Router $router)
     {
         echo 'desde blog';

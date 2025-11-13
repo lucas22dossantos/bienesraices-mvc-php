@@ -38,7 +38,7 @@ if (!isset($inicio)) {
             class="dark-mode-boton" />
           <nav class="navegacion">
             <a href="/nosotros">Nosotros</a>
-            <a href="/anuncios">Anuncios</a>
+            <a href="/propiedades">Anuncios</a>
             <a href="/blog">Blog</a>
             <a href="/contacto">Contacto</a>
             <?php if ($auth): ?>
@@ -59,7 +59,7 @@ if (!isset($inicio)) {
     <div class="contenedor contenido-footer">
       <nav class="navegacion">
         <a href="/nosotros">Nosotros</a>
-        <a href="/anuncios">Anuncios</a>
+        <a href="/propiedades">Anuncios</a>
         <a href="/blog">Blog</a>
         <a href="/contacto">Contacto</a>
       </nav>

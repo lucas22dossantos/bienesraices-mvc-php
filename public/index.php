@@ -34,6 +34,7 @@ $router->post('/vendedores/eliminar', [VendedorController::class, 'eliminar']);
 // zona publica
 $router->get('/', [PaginasController::class, 'index']);
 $router->get('/propiedades', [PaginasController::class, 'propiedades']);
+$router->get('/propiedad', [PaginasController::class, 'propiedad']);
 $router->get('/blog', [PaginasController::class, 'blog']);
 $router->get('/entrada', [PaginasController::class, 'entrada']);
 $router->get('/contacto', [PaginasController::class, 'contacto']);
