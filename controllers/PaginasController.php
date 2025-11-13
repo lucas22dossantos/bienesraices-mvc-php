@@ -1,0 +1,41 @@
+<?php
+
+namespace Controllers;
+
+use MVC\Router;
+use Model\Propiedad;
+
+
+class PaginasController
+{
+    public static function index(Router $router)
+    {
+        $propiedades = Propiedad::get(3);
+        $inicio = true;
+        $router->render('paginas/index', [
+            'propiedades' => $propiedades,
+            'inicio' => $inicio,
+        ]);
+    }
+
+    public static function nosotros(Router $router)
+    {
+        $router->render('paginas/nosotros', []);
+    }
+    public static function anuncios(Router $router)
+    {
+        echo 'desde anuncios';
+    }
+    public static function blog(Router $router)
+    {
+        echo 'desde blog';
+    }
+    public static function contacto(Router $router)
+    {
+        echo 'desde contacto';
+    }
+    public static function entrada(Router $router)
+    {
+        echo 'desde entrada';
+    }
+}

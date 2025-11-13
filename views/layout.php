@@ -1,11 +1,11 @@
 <?php
 $auth = $_SESSION['login'] ?? null;
 
-
 //temporal --
 if (!isset($inicio)) {
   $inicio = false;
 }
+
 ?>
 
 
@@ -37,12 +37,12 @@ if (!isset($inicio)) {
             alt="boton modo dark"
             class="dark-mode-boton" />
           <nav class="navegacion">
-            <a href="/src/html/nosotros.php">Nosotros</a>
-            <a href="/src/html/anuncios.php">Anuncios</a>
-            <a href="/src/html/blog.php">Blog</a>
-            <a href="/src/html/contacto.php">Contacto</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/anuncios">Anuncios</a>
+            <a href="/blog">Blog</a>
+            <a href="/contacto">Contacto</a>
             <?php if ($auth): ?>
-              <a href="/src/html/cerrar-sesion.php">Cerrar Sesión</a>
+              <a href="/cerrar-sesion">Cerrar Sesión</a>
             <?php endif ?>
           </nav>
         </div>
@@ -58,10 +58,10 @@ if (!isset($inicio)) {
   <footer class="footer seccion">
     <div class="contenedor contenido-footer">
       <nav class="navegacion">
-        <a href="/src/html/nosotros.php">Nosotros</a>
-        <a href="/src/html/anuncios.php">Anuncios</a>
-        <a href="/src/html/blog.php">Blog</a>
-        <a href="/src/html/contacto.php">Contacto</a>
+        <a href="/nosotros">Nosotros</a>
+        <a href="/anuncios">Anuncios</a>
+        <a href="/blog">Blog</a>
+        <a href="/contacto">Contacto</a>
       </nav>
     </div>
 
