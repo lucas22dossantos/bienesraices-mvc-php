@@ -45,14 +45,16 @@ class PaginasController
 
     public static function blog(Router $router)
     {
-        echo 'desde blog';
+        $router->render('paginas/blog');
     }
+
+    public static function entrada(Router $router)
+    {
+        $router->render('paginas/entrada');
+    }
+
     public static function contacto(Router $router)
     {
         echo 'desde contacto';
-    }
-    public static function entrada(Router $router)
-    {
-        echo 'desde entrada';
     }
 }
