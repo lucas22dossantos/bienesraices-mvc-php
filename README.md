@@ -95,9 +95,10 @@ Permite gestionar **propiedades** y **vendedores** mediante operaciones CRUD com
 
 ## ▶️ Uso
 
-- Accede al proyecto desde tu navegador:  
+- Accede al proyecto publico desde tu navegador:  
   Ejemplo: `http://localhost/`
 - Inicia sesión en el panel de administración con las credenciales de ejemplo:
+  Ejemplo: `http://localhost/login`
   - **Email**: `email@gmail.com`
   - **Contraseña**: `1234`
 - Una vez autenticado, podrás gestionar **propiedades** y **vendedores**.
