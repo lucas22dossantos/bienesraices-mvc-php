@@ -94,15 +94,15 @@ Es ideal para aprender arquitectura MVC, seguridad básica, validación de formu
 
 ## Estructura del Proyecto
 
-/controllers — Controladores MVC
-/models — Modelos del sistema
-/views — Vistas HTML/PHP
-/public — Carpeta pública del proyecto
-/includes — Helpers y configuración
-/src — Código compartido (rutas, clases varias)
-gulpfile.js — Configuración de Gulp
-package.json — Dependencias frontend
-Router.php — Enrutador MVC principal
+- /controllers — Controladores MVC
+- /models — Modelos del sistema
+- /views — Vistas HTML/PHP
+- /public — Carpeta pública del proyecto
+- /includes — Helpers y configuración
+- /src — Código compartido (rutas, clases varias)
+- gulpfile.js — Configuración de Gulp
+- package.json — Dependencias frontend
+- Router.php — Enrutador MVC principal
 
 ---
 
