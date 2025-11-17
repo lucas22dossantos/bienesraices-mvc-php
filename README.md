@@ -1,242 +1,118 @@
-# Bienes Raíces MVC (PHP)
+# 🏡 Bienes Raíces | Aplicación Web MVC con PHP y POO
 
-Proyecto desarrollado con **PHP** aplicando el patrón **MVC (Modelo-Vista-Controlador)** y **Programación Orientada a Objetos (POO)**.
-Incluye conexión a MySQL, autenticación de usuarios, automatización de tareas con Gulp, protección de rutas y administración completa de propiedades y vendedores.
+Proyecto de sistema de administración de bienes raíces desarrollado con **PHP** utilizando el patrón de diseño **MVC (Modelo-Vista-Controlador)** y **Programación Orientada a Objetos (POO)**.
 
----
-
-## Tabla de Contenidos
-
-- **Descripción**
-- **Funcionalidades**
-- **Tecnologías Usadas**
-- **Requisitos**
-- **Instalación**
-- **Configuración**
-- **Uso**
-- **Estructura del Proyecto**
-- **Autenticación**
-- **Base de Datos**
-- **Autor**
+Este proyecto ejemplifica la arquitectura profesional de una aplicación web, incluyendo la gestión de bases de datos **MySQL**, sistema de **autenticación** completo, protección de **rutas administrativas** y automatización de tareas **frontend con Gulp**.
 
 ---
 
-## Descripción
+## 🛠️ Tecnologías y Características Principales
 
-Sistema de administración de bienes raíces construido en PHP MVC.
-Permite crear, editar, listar y eliminar propiedades y vendedores, incluye autenticación con sesiones y protección de rutas, y automatiza tareas frontend con Gulp.
+### Tecnologías Usadas
 
-Es ideal para aprender arquitectura MVC, seguridad básica, validación de formularios, manejo de sesiones y organización profesional de un proyecto PHP.
+- **Backend:** PHP 7/8, MySQL.
+- **Frontend:** HTML5, CSS3/SASS, JavaScript.
+- **DevTools:** Node.js, npm, **Gulp** (para compilación y optimización).
 
----
+### Funcionalidades
 
-## Funcionalidades
-
-- Arquitectura **MVC** organizada.
-- CRUD completo de **propiedades**.
-- CRUD de **vendedores**.
-- **Autenticación de usuarios** (login y logout).
-- **Protección de rutas** para administradores.
-- Manejo de **sesiones**.
-- Validación de formularios.
-- Conexión a base de datos MySQL.
-- Compilación y optimización de CSS/JS mediante **Gulp**.
-- Subida y optimización de imágenes.
+- **Arquitectura MVC** y POO organizada.
+- **CRUD** completo para **Propiedades** y **Vendedores**.
+- **Autenticación de Usuarios:** Login, Logout y manejo de sesiones.
+- **Seguridad:** Validación de formularios y protección de rutas para administradores.
+- **Manejo de Archivos:** Subida, validación y optimización de imágenes.
 
 ---
 
-## Tecnologías Usadas
+## 🚀 Requisitos e Instalación
 
-- PHP 7/8
-- MySQL
-- HTML5 / CSS3 / SASS
-- JavaScript
-- Node.js / npm
-- Gulp
+### Requisitos del Sistema
 
----
+Asegurate de tener instalados los siguientes componentes:
 
-## Requisitos
+- **Servidor Web** (Apache, Nginx).
+- **PHP** (Versión 7.4 o superior).
+- **MySQL / MariaDB**.
+- **Node.js** y **npm** (Necesarios para Gulp).
+- **Composer** (Recomendado para manejar dependencias de PHP).
 
-- PHP 7+ / 8
-- Servidor web (Apache, Nginx)
-- MySQL
-- Node.js + npm (para Gulp)
-- Composer (opcional)
+### Guía Rápida de Instalación
 
----
+1.  **Clonar el Repositorio:**
 
-## Instalación
+    ```bash
+    git clone [https://github.com/lucas22dossantos/bienesraices-mvc-php.git](https://github.com/lucas22dossantos/bienesraices-mvc-php.git)
+    cd bienesraices-mvc-php
+    ```
 
-1. Cloná el repositorio en tu computadora.
-2. Instalá las dependencias de Node usando `npm install`.
-3. Ejecutá Gulp para compilar los archivos frontend.
-4. Configurá tu servidor web para que el **document root** sea la carpeta **/public**.
+2.  **Instalar Dependencias Frontend (Node/Gulp):**
 
----
+    ```bash
+    npm install
+    # Ejecutar Gulp para compilar SASS/JS y mover archivos al build
+    npm run dev
+    ```
 
-## Configuración
-
-- Creá una base de datos (ej.: `bienesraices_crud`).
-- Configurá tus credenciales en el archivo de conexión a la base de datos.
-- Importá las tablas indicadas en la sección de base de datos (más abajo).
+3.  **Configuración del Servidor Web:**
+    - Configurá el **Document Root** de tu servidor web (virtual host) para que apunte a la carpeta **`/public`** dentro del proyecto. Esto es esencial para la seguridad y el enrutamiento.
 
 ---
 
-## Uso
+## ⚙️ Configuración de la Base de Datos
 
-- Abrí la URL local de tu proyecto (por ejemplo: `http://localhost/bienesraices-mvc-php/`).
-- Accedé al formulario de login para entrar al panel de administración.
-- Una vez logueado podrás gestionar propiedades y vendedores.
-- El sistema mostrará el enlace **Cerrar Sesión** si la sesión está activa.
+### 1. Creación e Importación
 
----
+1.  Creá una base de datos en MySQL (ej.: `bienesraices_crud`).
+2.  Importá el esquema de la base de datos y los datos iniciales usando el archivo **`bienesraices_crud.sql`** (debes incluir este archivo en el repositorio para facilitar la instalación, o indicar dónde se encuentra el script).
 
-## Estructura del Proyecto
+### 2. Credenciales
 
-- /controllers — Controladores MVC
-- /models — Modelos del sistema
-- /views — Vistas HTML/PHP
-- /public — Carpeta pública del proyecto
-- /includes — Helpers y configuración
-- /src — Código compartido (rutas, clases varias)
-- gulpfile.js — Configuración de Gulp
-- package.json — Dependencias frontend
-- Router.php — Enrutador MVC principal
+Configurá las credenciales de conexión a tu base de datos editando el archivo de configuración correspondiente (generalmente dentro de `/includes` o `/config`).
 
----
+### 3. Usuario Administrador (Login)
 
-## Autenticación
+Para ingresar al panel de administración, el sistema utiliza la tabla `usuario`.
 
-El sistema de login implementa:
-
-- Validación de email y contraseña.
-- Verificación del usuario en la base de datos.
-- Comparación de contraseñas con `password_verify`.
-- Creación de sesión `$_SESSION['login']`.
-- Cierre de sesión desde la ruta `/logout`.
-- Protección automática de rutas administrativas.
+| Campo                                                                | Valor de Ejemplo  |
+| -------------------------------------------------------------------- | ----------------- |
+| **correo**                                                           | `email@gmail.com` |
+| **contrasena**                                                       | `1234`            |
+| **Nota:** La contraseña está cifrada con `password_hash()` en la BD. |
 
 ---
 
-# 🗄️ Base de Datos
+## 📚 Estructura del Proyecto
 
-La base de datos **bienesraices_crud** contiene tres tablas principales:
+La aplicación sigue un patrón **MVC** estricto para la separación de responsabilidades.
 
-- **usuario**
-- **vendedores**
-- **propiedades**
-
----
-
-## 📍 Tabla: `usuario`
-
-| Campo      | Tipo         | Descripción                          |
-| ---------- | ------------ | ------------------------------------ |
-| id         | INT (PK, AI) | Identificador único                  |
-| correo     | VARCHAR(50)  | Email del administrador              |
-| contrasena | CHAR(60)     | Contraseña cifrada con password_hash |
-
-Ejemplo:
-
-- correo: `email@gmail.com`
-- contraseña: `1234`
+| Carpeta            | Descripción                                                                             |
+| :----------------- | :-------------------------------------------------------------------------------------- |
+| **`/controllers`** | Lógica de la aplicación: procesa datos y retorna la vista.                              |
+| **`/models`**      | Modelos POO que interactúan con la base de datos.                                       |
+| **`/views`**       | Archivos PHP/HTML que generan la interfaz de usuario.                                   |
+| **`/public`**      | **Document Root** principal. Contiene CSS, JS, imágenes y el _entry point_ (index.php). |
+| **`/includes`**    | Clases de configuración y _helpers_.                                                    |
+| **`/src`**         | Código compartido, incluyendo el **Router** principal de la aplicación.                 |
+| **`gulpfile.js`**  | Archivo de configuración para automatizar tareas frontend.                              |
 
 ---
 
-## 📍 Tabla: `vendedores`
+## 🗄️ Diseño de la Base de Datos
 
-| Campo    | Tipo         | Descripción         |
-| -------- | ------------ | ------------------- |
-| id       | INT (PK, AI) | Identificador       |
-| nombre   | VARCHAR(45)  | Nombre del vendedor |
-| apellido | VARCHAR(45)  | Apellido            |
-| telefono | VARCHAR(10)  | Teléfono            |
+El sistema se basa en tres tablas principales. La relación es **uno a muchos** (`vendedores` a `propiedades`).
 
----
+### Tablas y Relaciones
 
-## 📍 Tabla: `propiedades`
-
-| Campo           | Tipo          | Descripción                   |
-| --------------- | ------------- | ----------------------------- |
-| id              | INT (PK, AI)  | Identificador de la propiedad |
-| titulo          | VARCHAR(45)   | Título                        |
-| precio          | DECIMAL(10,2) | Precio                        |
-| imagen          | VARCHAR(200)  | Nombre del archivo subido     |
-| descripcion     | LONGTEXT      | Descripción larga             |
-| habitaciones    | INT           | Habitaciones                  |
-| wc              | INT           | Baños                         |
-| estacionamiento | INT           | Cocheras                      |
-| creado          | DATE          | Fecha de creación             |
-| vendedores_id   | INT (FK)      | ID del vendedor asociado      |
-
-### 🔗 Relación
-
-`propiedades.vendedores_id` → `vendedores.id`
-Un vendedor puede tener muchas propiedades.
+| Tabla             | Propósito                                                  | Relación Importante                              |
+| :---------------- | :--------------------------------------------------------- | :----------------------------------------------- |
+| **`usuario`**     | Almacena las credenciales para el login del administrador. | -                                                |
+| **`vendedores`**  | Datos de contacto de los vendedores.                       | **1 a M** con `propiedades`                      |
+| **`propiedades`** | Información detallada de los bienes raíces.                | **M a 1** con `vendedores` (por `vendedores_id`) |
 
 ---
 
-## 🔄 Diagrama Simplificado
-
-usuario
-
-- id
-- correo
-- contrasena
-
-vendedores
-
-- id
-- nombre
-- apellido
-- telefono
-
-propiedades
-
-- id
-- titulo
-- precio
-- imagen
-- descripcion
-- habitaciones
-- wc
-- estacionamiento
-- creado
-- vendedores_id (FK → vendedores.id)
-
----
-
-## 📥 Script SQL (resumen)
-
-CREATE TABLE `usuario` (
-id INT AUTO_INCREMENT PRIMARY KEY,
-correo VARCHAR(50),
-contrasena CHAR(60)
-);
-
-CREATE TABLE `vendedores` (
-id INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(45),
-apellido VARCHAR(45),
-telefono VARCHAR(10)
-);
-
-CREATE TABLE `propiedades` (
-id INT AUTO_INCREMENT PRIMARY KEY,
-titulo VARCHAR(45),
-precio DECIMAL(10,2),
-imagen VARCHAR(200),
-descripcion LONGTEXT,
-habitaciones INT,
-wc INT,
-estacionamiento INT,
-creado DATE,
-vendedores_id INT
-);
-
----
-
-## Autor
+## 👤 Autor
 
 **Lucas Dos Santos**
+
+---
